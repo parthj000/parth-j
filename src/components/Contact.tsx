@@ -7,25 +7,25 @@ const socials = [
   {
     name: 'GitHub',
     icon: <FaGithub size={30} />,
-    link: 'https://github.com/yourusername',
+    link: 'https://github.com/parthj000',
     color: 'hover:text-[#4078c0]',
   },
   {
     name: 'LinkedIn',
     icon: <FaLinkedin size={30} />,
-    link: 'https://linkedin.com/in/yourusername',
+    link: 'https://www.linkedin.com/in/parth-joshi-a65a62286/',
     color: 'hover:text-[#0077b5]',
   },
   {
     name: 'Discord',
     icon: <FaDiscord size={30} />,
-    link: 'https://discordapp.com/users/yourid',
+    link: 'https://discordapp.com/users/pars0942',
     color: 'hover:text-[#5865F2]',
   },
   {
     name: 'Email',
     icon: <FaEnvelope size={30} />,
-    link: 'mailto:you@example.com',
+    link: 'mailto:jparth582@gmail.com',
     color: 'hover:text-[#c71610]',
   },
 ];
@@ -43,11 +43,11 @@ export default function Contact() {
   const subY = useTransform(scrollYProgress, [0.3, 0.5], [100, 0]);
   const subOpacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
 
-  const iconsY = useTransform(scrollYProgress, [0.5, 1], [100, 0]);
-  const iconsOpacity = useTransform(scrollYProgress, [0.5, 1], [0, 1]);
+  const iconsY = useTransform(scrollYProgress, [0.3, 0.6], [100, 0]);
+  const iconsOpacity = useTransform(scrollYProgress, [0.3, 0.6], [0, 1]);
 
   return (
-    <div ref={ref} className="h-[300vh]  text-white relative">
+    <div ref={ref} className="h-[300vh]   text-white relative">
       <div className="sticky top-0 h-screen flex  items-center justify-center">
         <div className='flex flex-col  '>
         <div className='flex flex-col justify-center items-start '>
@@ -91,7 +91,7 @@ export default function Contact() {
       </div>
       </div>
       <div className="absolute bottom-0 w-full py-4 text-center text-white text-sm">
-  <span>© {new Date().getFullYear()} Parth Joshi. All rights reserved.</span>
+  <span>© {new Date().getFullYear()}. Parth Joshi. jparth582@gmail.com. All rights reserved.</span>
 </div>
     </div>
   );

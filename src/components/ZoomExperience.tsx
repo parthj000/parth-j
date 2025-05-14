@@ -34,7 +34,7 @@ export default function ZoomExperience() {
       <div className=" sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         <motion.h1
           style={{ scale, }}
-          className="text-6xl font-extrabold text-[white]"
+          className="md:text-6xl text-4xl font-extrabold text-[white]"
           transition={{
             ease: [0.1, 0.4, 0.36, 1],
             duration: 0.8,

@@ -25,7 +25,7 @@ export default function TechStack() {
         <div className="flex-1 relative flex justify-center items-center text-center self-center">
           <div className="relative md:text-7xl md:max-w-[70vw] sm:text-5xl text-4xl font-extrabold mb-2 p-4">
             <motion.div
-              className="absolute top-0 left-0 md:translate-x-[50%] -translate-x-[0%] -translate-y-[100%] -z-0"
+              className="absolute top-0 left-0 md:translate-x-[50%] -translate-x-[0%] -translate-y-[100%] -z-5"
               style={{ rotate: rotation }}
             >
               <Image src="/arrow.png" alt="" width={250} height={300} />
