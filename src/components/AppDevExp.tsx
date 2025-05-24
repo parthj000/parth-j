@@ -23,7 +23,7 @@ export default function AppDeveloperCard() {
     >
       <div className="flex flex-col">
         <span className="mb-2 text-5xl md:text-7xl font-extrabold">
-          App Developer
+          SDE Intern
         </span>
 
         <span className="text-blue-600 mb-4 font-bold md:text-2xl text-lg">
