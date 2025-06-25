@@ -63,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased [scroll-padding-top:80px]`}
+        className={`${geistSans.variable} ${geistMono.variable}  scroll-smooth antialiased [scroll-padding-top:80px]`}
       >
         {children}
       </body>

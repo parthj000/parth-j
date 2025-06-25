@@ -90,7 +90,7 @@ export default function Contact() {
 
       </div>
       </div>
-      <div className="absolute bottom-0 w-full py-4 text-center text-white text-sm">
+      <div className="absolute bottom-0 w-full py-4 px-4 text-center text-white text-sm">
   <span>© {new Date().getFullYear()}. Parth Joshi. jparth582@gmail.com. All rights reserved.</span>
 </div>
     </div>

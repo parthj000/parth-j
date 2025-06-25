@@ -34,7 +34,7 @@ export default function Project(props: IProject) {
 
 function Type2({ title, image, projectLink, techStack, description, index }: IProject) {
   return (
-    <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-4 h-full md:max-w-[70vw] max-w-[60vw] md:gap-y-0">
+    <div className="flex flex-col justify-center gap-4 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-4 h-full md:max-w-[70vw] max-w-[60vw] md:gap-y-0">
       
       {/* Heading Block */}
       <div className="flex md:col-start-1 md:row-start-2 md:justify-center md:translate-x-[25%] translate-x-[0%] relative">
@@ -84,7 +84,7 @@ function Type2({ title, image, projectLink, techStack, description, index }: IPr
 function Type1({ title,image,projectLink,techStack,description,index}: IProject){
 
   return (
-  <div className=" flex flex-col gap-4  md:grid  md:grid-cols-2 md:grid-rows-2  md:gap-x-4  h-full md:max-w-[70vw] max-w-[70vw] md:gap-y-0   ">
+  <div className=" flex flex-col justify-center gap-4  md:grid  md:grid-cols-2 md:grid-rows-2  md:gap-x-4  h-full md:max-w-[70vw] max-w-[70vw] md:gap-y-0   ">
         
 
         {/* title block */}
