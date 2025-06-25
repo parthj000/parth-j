@@ -28,8 +28,8 @@ export default function About() {
     const x = e.clientX - left;
     const y = e.clientY - top;
 
-    const rotateY = ((x / width) - 0.5) * 40;
-    const rotateX = ((y / height) - 0.5) * -40;
+    const rotateY = ((x / width) - 0.5) * 80;
+    const rotateX = ((y / height) - 0.5) * -80;
 
     setRotate({ x: rotateX, y: rotateY });
   };
@@ -43,7 +43,7 @@ export default function About() {
       <div className="h-screen sticky top-0 flex px-4 justify-center gap-7 items-center">
         <div className="flex sm:flex-row flex-col justify-center gap-2 sm:gap-4">
           <motion.div
-            className="sm:w-64 sm:h-64 max-w-full h-40 relative rounded-2xl overflow-hidden shadow-lg"
+            className="sm:w-64 sm:h-64 max-w-full cursor-pointer h-40 relative rounded-2xl overflow-hidden shadow-lg"
             onMouseMove={handleMouseMove}
             onMouseLeave={resetRotation}
             animate={{ rotateX: rotate.x, rotateY: rotate.y }}
@@ -51,7 +51,7 @@ export default function About() {
             style={{ perspective: 1000 }}
           >
             <Image
-              src="/profile.jpg"
+              src="/image2.png"
               alt="Profile"
               fill
               className="object-cover"

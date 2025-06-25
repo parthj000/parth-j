@@ -21,7 +21,7 @@ const projects:IProject[] = [
       "CRON",
       
     ],
-    projectLink:"https://polycode-arena.vercel.app",
+    projectLink:"https://github.com/parthj000/PolycodeArena",
     projType:1
   },
   {

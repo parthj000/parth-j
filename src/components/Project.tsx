@@ -51,7 +51,7 @@ function Type2({ title, image, projectLink, techStack, description, index }: IPr
       </div>
 
       {/* Image Block */}
-      <div className="bg-red-400 md:col-start-1 md:col-end-2 md:row-start-1 w-full h-30 md:h-full rounded-md relative overflow-hidden">
+      <div className="bg-[#353535] md:col-start-1 md:col-end-2 md:row-start-1 w-full h-30 md:h-full rounded-md relative overflow-hidden">
         <Image
           src={image}
           alt="Responsive Image"
@@ -105,7 +105,7 @@ function Type1({ title,image,projectLink,techStack,description,index}: IProject)
         </div>
 
         {/* Image Block */}
-        <div className="bg-red-400 md:col-start-1 md:col-end-2 md:row-start-2 w-full h-30 md:h-full rounded-md  relative overflow-hidden">
+        <div className="bg-[#353535] md:col-start-1 md:col-end-2 md:row-start-2 w-full h-30 md:h-full rounded-md  relative overflow-hidden">
           <Image
             src={image}
             alt="Responsive Image"

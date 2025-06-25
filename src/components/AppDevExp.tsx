@@ -27,7 +27,7 @@ export default function AppDeveloperCard() {
         </span>
 
         <span className="text-blue-600 mb-4 font-bold md:text-2xl text-lg">
-          @ TechTwoTechnologies
+          @ TakeTwoTechnologies
         </span>
 
         <ul className="list-none md:text-sm text-xs mb-4 font-semibold space-y-2">
