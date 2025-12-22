@@ -34,11 +34,25 @@ with intelligent node structuring, map sharing and collaboration.`,
     projectLink:"https://map-nest-pied.vercel.app/",
     projType:2
   },
+  {
+    title:"MLVTEC website",
+    description:`Designed and developed a fully custom website for the MLVTEC educational institution with personalized UI/UX, handcrafted animations, and a performance-focused frontend, powered by a lightweight in-house framework for content creation and deployment.`,
+    index:3,
+    image:"/mlvtec.png",
+    techStack:[
+    "Js(Vanilla)",
+    "CSS",
+    "Custom Animations",
+    "Custom Content Framework"
+  ],
+    projectLink:"https://mlvti.ac.in/web/index.html",
+    projType:1
+  },
   
   {
     title:"ScribesCollab",
     description:`Built a real-time collaborative blogging platform supporting multi-user live editing, blog CRUD, image uploads, bookmarking, user auth, and an admin-curated feed, enhancing content quality and teamwork for 100+ users.`,
-    index:3,
+    index:4,
     image:"/scribes.png",
     techStack:[
       "Socket.io",
@@ -48,8 +62,9 @@ with intelligent node structuring, map sharing and collaboration.`,
       "Cookies"
     ],
     projectLink:"https://scribes-collab.onrender.com/",
-    projType:1
+    projType:2
   },
+  
 
 
 ]
@@ -59,13 +74,13 @@ export default function Projects() {
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ['0.5 end', 'end end'], // Scroll starts after 20% of section
+    offset: ['0.3 end', '0.93 end'], // Scroll starts after 20% of section
   });
 
   const x = useTransform(scrollYProgress, [0, 1], ['0%', `-${(projects.length - 1) * 100}%`]);
 
   return (
-    <section ref={targetRef} className="h-[400vh] relative">
+    <section ref={targetRef} className="h-[500vh] relative">
       <div className="sticky top-0 h-screen flex flex-col overflow-hidden md:gap-y-15 gap-y-7">
         <h1 className="text-5xl font-extrabold text-white z-10 p-4">Projects</h1>
 

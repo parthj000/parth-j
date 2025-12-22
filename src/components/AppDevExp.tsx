@@ -5,12 +5,12 @@ import React from "react";
 
 export default function AppDeveloperCard() {
   const points = [
-    "Designed and developed a cross-platform app to enhance student cognitive performance and reduce test anxiety",
-    "Boosted study efficiency and engagement by over 70% via smart reminders (FCM), visual planners (BigCalendar, GiftedCharts)",
-    "Built modular REST-based backend microservices using Next.js",
-    "Used CRON Jobs for automated push cycles",
-    
-  ];
+  "Lead Developer for Proctorlink: architected and shipped a real-time biometric face recognition pipeline using InsightFace, Dlib, and OpenCV, enabling eye-status detection, EAR-based liveness checks, and embedding-driven identity verification at scale",
+  "Owned end-to-end backend performance: built modular Flask microservices with Redis caching, Dockerized deployments, and thread-safe inference to achieve low-latency, high-throughput APIs under live exam traffic",
+  "Designed and operated scalable AWS autoscaling infrastructure, including EC2 AMIs, Auto Scaling Groups,Scaling policies, ALB routing, NGINX reverse proxies, and environment-aware production setups",
+  "Integrated LiveKit-based real-time streaming and event-driven systems to power live proctoring, monitoring, and participant control with minimal latency and high reliability"
+]
+;
 
   return (
     <motion.div
@@ -23,11 +23,22 @@ export default function AppDeveloperCard() {
     >
       <div className="flex flex-col">
         <span className="mb-2 text-5xl md:text-7xl font-extrabold">
-          SDE Intern
+          SD Engineer
         </span>
 
         <span className="text-blue-600 mb-4 font-bold md:text-2xl text-lg">
-          @ TakeTwoTechnologies
+          @ Take2Technologies
+        </span>
+
+        <span className="text-[black] mb-4 font-extrabold md:text-xl text-md">
+          Proctorlink&nbsp;
+          <a
+            href="https://proctorlink.com/"
+            target="_blank"
+            className="text-blue-600  text-sm underline tracking-wider"
+          >
+            Link 
+          </a>
         </span>
 
         <ul className="list-none md:text-sm text-xs mb-4 font-semibold space-y-2">
@@ -35,23 +46,6 @@ export default function AppDeveloperCard() {
             <li key={idx}>✔ {point}</li>
           ))}
         </ul>
-
-        <div className="flex gap-4 text-sm">
-          <a
-            href="https://play.google.com/store/apps/details?id=com.brainflowapp.app&hl=en"
-            target="_blank"
-            className="text-blue-600 underline font-bold "
-          >
-            Google Play
-          </a>
-          <a
-            href="https://apps.apple.com/sa/app/brainflow-academic-companion/id6670271642?uo=2"
-            target="_blank"
-            className="text-blue-600 underline font-bold tracking-wider"
-          >
-            App Store
-          </a>
-        </div>
       </div>
     </motion.div>
   );
