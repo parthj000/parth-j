@@ -12,7 +12,7 @@
     "@react-three/fiber": "^9.1.2",
     "lottie-react": "^2.4.1",
     "motion": "^12.10.3",
-    "next": "15.3.2",
+    "next": "15.3.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-fast-marquee": "^1.6.5",
