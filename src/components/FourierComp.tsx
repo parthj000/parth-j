@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export function Fourier({ speed }: { speed: number }) {
+export default function Fourier() {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
 

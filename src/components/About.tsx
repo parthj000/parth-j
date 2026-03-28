@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { Fourier } from "./FourierComp";
+import Fourier  from "./FourierComp";
 
 export default function About() {
   const ref = useRef(null);
