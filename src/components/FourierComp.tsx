@@ -1,22 +1,39 @@
 import { useEffect, useRef } from "react";
 
+type FourierCoeff = {
+  amp: number;
+  freq: number;
+  phase: number;
+};
+
+type Point = {
+  x: number;
+  y: number;
+};
+
 export default function Fourier() {
-  const canvasRef = useRef(null);
-  const containerRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    let coeffs = [];
+    let coeffs: FourierCoeff[] = [];
     let time = 0;
-    let path = [];
-    let animationId;
-
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+    let path: Point[] = [];
+    let animationId: number | null = null;
 
     function resizeCanvas() {
+      const canvas = canvasRef.current;
       const container = containerRef.current;
 
-      const size = Math.min(container.clientWidth, window.innerHeight * 0.5);
+      if (!canvas || !container) return;
+
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      const size = Math.min(
+        container.clientWidth,
+        window.innerHeight * 0.5
+      );
 
       const dpr = window.devicePixelRatio || 1;
 
@@ -29,80 +46,93 @@ export default function Fourier() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+    function draw(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, dt: number) {
+      const W = canvas.clientWidth;
+      const H = canvas.clientHeight;
 
-    fetch("/fourier.json")
-      .then((res) => res.json())
-      .then((data) => {
-        coeffs = data.slice(0, 300);
+      ctx.clearRect(0, 0, W, H);
 
-        const dt = (Math.PI * 1.5) / coeffs.length;
+      ctx.save();
+      ctx.translate(W / 2, H / 2);
 
-        function draw() {
-          const W = canvas.clientWidth;
-          const H = canvas.clientHeight;
+      let x = 0;
+      let y = 0;
 
-          ctx.clearRect(0, 0, W, H);
+      for (const c of coeffs) {
+        const prevx = x;
+        const prevy = y;
 
-          ctx.save();
-          ctx.translate(W / 2, H / 2);
+        x += c.amp * Math.cos(c.freq * time + c.phase);
+        y += c.amp * Math.sin(c.freq * time + c.phase);
 
-          let x = 0;
-          let y = 0;
+        ctx.strokeStyle = "rgba(255,255,255,0.8)";
+        ctx.beginPath();
+        ctx.arc(prevx, prevy, c.amp, 0, Math.PI * 2);
+        ctx.stroke();
 
-          for (let c of coeffs) {
-            const prevx = x;
-            const prevy = y;
+        ctx.strokeStyle = "rgba(255,255,255,0.6)";
+        ctx.beginPath();
+        ctx.moveTo(prevx, prevy);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      }
 
-            x += c.amp * Math.cos(c.freq * time + c.phase);
-            y += c.amp * Math.sin(c.freq * time + c.phase);
+      path.unshift({ x, y });
 
-            // circles
-            ctx.strokeStyle = "rgba(255,255,255,0.8)";
-            ctx.beginPath();
-            ctx.arc(prevx, prevy, c.amp, 0, Math.PI * 2);
-            ctx.stroke();
+      if (path.length > 0) {
+        ctx.beginPath();
+        ctx.moveTo(path[0].x, path[0].y);
 
-            // arms
-            ctx.strokeStyle = "rgba(255,255,255,0.6)";
-            ctx.beginPath();
-            ctx.moveTo(prevx, prevy);
-            ctx.lineTo(x, y);
-            ctx.stroke();
-          }
-
-          path.unshift({ x, y });
-
-          ctx.beginPath();
-          ctx.moveTo(path[0].x, path[0].y);
-
-          for (let i = 1; i < path.length; i++) {
-            ctx.lineTo(path[i].x, path[i].y);
-          }
-
-          ctx.strokeStyle = "#00ffff";
-          ctx.lineWidth = 2;
-          ctx.stroke();
-
-          ctx.restore();
-
-          time += dt;
-
-          if (time > Math.PI * 2) {
-            time = 0;
-            path = [];
-          }
-
-          animationId = requestAnimationFrame(draw);
+        for (let i = 1; i < path.length; i++) {
+          ctx.lineTo(path[i].x, path[i].y);
         }
 
-        draw();
-      });
+        ctx.strokeStyle = "#00ffff";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+
+      ctx.restore();
+
+      time += dt;
+
+      if (time > Math.PI * 2) {
+        time = 0;
+        path = [];
+      }
+
+      animationId = requestAnimationFrame(() =>
+        draw(ctx, canvas, dt)
+      );
+    }
+
+    function init() {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      fetch("/fourier.json")
+        .then((res) => res.json())
+        .then((data: FourierCoeff[]) => {
+          coeffs = data.slice(0, 300);
+
+          const dt = (Math.PI * 1.5) / coeffs.length;
+
+          draw(ctx, canvas, dt);
+        });
+    }
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+    init();
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
-      cancelAnimationFrame(animationId);
+      if (animationId !== null) {
+        cancelAnimationFrame(animationId);
+      }
     };
   }, []);
 
