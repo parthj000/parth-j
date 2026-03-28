@@ -12,51 +12,37 @@ import TechStack from "./TechStack";
 import Contact from "@/components/Contact";
 import ScrollDown from "@/components/ScrollDown";
 import ClippingLoader from "./Loading";
+import FourierCanvas from "@/components/FourierComp";
 
 export default function Home() {
   return (
     <>
-    
       <Nav />
-      
-      
-      
       <div
         className="
-      bg-[black] 
-  bg-[linear-gradient(to_right,rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.2)_1px,transparent_1px)] 
-  bg-[length:100px_100px] 
+      bg-[black]
+  bg-[linear-gradient(to_right,rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.2)_1px,transparent_1px)]
+  bg-[length:100px_100px]
   bg-[position:4vw_4vw]
-  
-  
-  
-  
       "
       >
-        
         <section id="about">
           <About />
         </section>
         <section id="projects">
           <Projects />
         </section>
-        
-          
-        
+
         <section id="experience">
-            <ZoomExperience />
+          <ZoomExperience />
           <ExperimentSection />
           <TechStack />
         </section>
-        
-          
-       
-        <section id="contact" >
+
+        <section id="contact">
           <Contact />
         </section>
-        
       </div>
-      
     </>
   );
 }
